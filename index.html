@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head  -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BTS Quote Generator</title>
+    <link rel="icon" href="favicon.png" type="image/x-icon"/>
+
+    <!-- Bootstrap for responsive page -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- Internal CSS -->
+    <style>
+        body {
+            background-image: image();
+        }
+
+        #quote-container {
+            background-color: #fff;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 50px;
+            margin-top: 20px;
+        }
+    </style>
+
+</head>
+
+<!-- Body -->
+<body id="quote-background">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 mx-auto" style=" display: flex; justify-content: center; align-items: center; height: 100vh; ">
+                <div id="quote-container" class="text-center">
+                    <h1>BTS Quote Generator</h1>
+                    <p id="quote-text"></p>
+                    <button id="new-quote" class="btn btn-primary lg">New Quote</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Bootstrap and jQuery JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+    <!-- Random Quotes Generator Functionality -->
+    <script>
+        // Sample array of quotes
+        const quotes = [
+            'You\'re the only one who can save yourself - BTS, Fire',
+            'If you want to shine like a sun, first burn like a sun - BTS, Fire',
+            'You\'ve shown me I have reasons I should love myself - BTS, Answer: Love Myself',
+            'Dream, though your beginnings may be humble, may the end be prosperous - BTS, No More Dream',
+            'I want to be a comfort to you, like you are to me - BTS, 2! 3! (Hoping for More Good Days)',
+            'The dawn before the sun rises is the darkest - BTS, Tomorrow',
+            'Even the scars that were formed from my mistakes are my very own constellations - BTS, Magic Shop',
+            'This sea of yours, I want to protect it forever - BTS, Sea',
+            'You\'ve shown me how to be happy - BTS, Answer: Love Myself',
+            'Life is a sculpture that you cast as you make mistakes and learn from them - BTS, MIC Drop',
+            'You can\'t stop me lovin\' myself - BTS, IDOL',
+            'I believe in the me that I\'ve known up until now - BTS, Epiphany',
+            'Let\'s breathe, as if we are in the forest - BTS, The Stars',
+            'The more you\'re beautiful on the inside, the more you shine on the outside - BTS, A Brand New Day',
+            'The day I want to run to that place, where my heart is taking me, to the place I belong - BTS, Paradise',
+            'I live so I love - BTS, Paradise',
+            'Find me and I\'m gonna bleed with ya - BTS, Blood Sweat & Tears',
+            'I\'m living because I can\'t die - BTS, Spring Day',
+            'I wish that you would love yourself - BTS, Answer: Love Myself',
+            'Don\'t be trapped in someone else\'s dream - BTS, Intro: O!RUL8,2?',
+            'Our wings may be fake, but we were born to fly - BTS, Am I Wrong',
+            'I\'m living for myself, not for you - BTS, Intro: O!RUL8,2?',
+            'I want to struggle and be free - BTS, Bapsae (Silver Spoon)',
+            'In the end, we reach our destination, not by escaping, but by enduring - BTS, Spring Day',
+            'Rather than worrying, go - BTS, Bapsae (Silver Spoon)',
+            'Don\'t be trapped in someone else\'s dream - BTS, Intro: O!RUL8,2?',
+            'You\'re too young to let the world break you - BTS, Youth',
+            'I believe in myself, my back hurts from my hard work - BTS, So Far Away',
+            'Never mind, it\'s not easy but engrave it onto your chest - BTS, Never Mind',
+            'I\'m not scared, it\'s okay, I\'m fearless - BTS, Not Today',
+            'Let\'s be happy, let\'s be hurt - BTS, Let Go',
+            'I won\'t ever give up, this is my way of life - BTS, Tomorrow',
+            'I\'m not gonna care if I get hurt - BTS, Attack on Bangtan (진격의 방탄)',
+            'I just want to be happier, is that too much to ask? - BTS, Paradise',
+        ];
+
+        // Function to generate a random quote
+        function generateRandomQuote() {
+            const randomIndex = Math.floor(Math.random() * quotes.length);
+            const randomQuote = quotes[randomIndex];
+            document.getElementById("quote-text").textContent = randomQuote;
+
+            //Call random image gen function
+            generateRandomBackground();
+
+        }
+
+        function generateRandomBackground(){
+            const min = 1;
+            const max = 10;
+            const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+            const imageURL = "image"+randomNumber.toString()+".jpg"
+            document.body.style.backgroundImage = `url(${imageURL})`;
+        }
+
+        // Event listener for the "New Quote" button
+        document.getElementById("new-quote").addEventListener("click", generateRandomQuote);
+        // Generate a random quote on page load
+        generateRandomQuote();
+    </script>
+
+</body>
+</html>
